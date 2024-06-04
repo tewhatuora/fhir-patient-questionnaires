@@ -25,9 +25,8 @@ Usage: #definition
 
 * rest.interaction.code = #transaction
 
-// 
 * rest.resource[+].type = #Condition
-* rest.resource[=].profile = Canonical(PatientConditionSummary)
+* rest.resource[=].profile = Canonical(PatientConditionSummary|0.0.1)
 * rest.resource[=] insert QuerySearchInteraction
 * rest.resource[=] insert ResourceDocumentation([[This server profiles FHIR Condition to support NZ Disabled Patient Assistance Requirements]])
 

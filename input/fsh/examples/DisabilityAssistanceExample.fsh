@@ -1,7 +1,7 @@
 Instance: DisabilityAssistanceExample
 InstanceOf: PatientConditionSummary
 Usage: #example
-Description: "Example of an Disability assistance summary as a FHIR DocumentReference with HTML narrative content only"
+Description: "Required Assistance: A New Zealand Sign Language interpreter"
 
 * meta.profile = Canonical(PatientConditionSummary)
 * meta.versionId = "0.0.1"

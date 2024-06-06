@@ -2,6 +2,7 @@ Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-cont
 
 Instance: DisabilityAssistanceQuestionnaire
 InstanceOf: Questionnaire
+Description: "Disability Assistance Requirements"
 Usage: #definition
 * url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DisabilityAssistanceQuestionnaire"
 * identifier[0].use = #official
@@ -9,7 +10,7 @@ Usage: #definition
 * identifier[=].period.start = "2023-07-19"
 * version = "0.2.2"
 * name = "DisabilityAssistanceQuestionnaire"
-* title = "Disability Assistance Requirements"
+* title = "Questionnaire Disability Assistance"
 * status = #draft
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"

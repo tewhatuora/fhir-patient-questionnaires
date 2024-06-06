@@ -1,16 +1,16 @@
-Instance: PatientConditionSummaryCapabilityStatement
+Instance: DisabilityAssistanceCapabilityStatement
 InstanceOf: CapabilityStatement
 Usage: #definition
 
-* name = "PatientConditionSummaryCapabilityStatement"
-* title = "Patient Disability Summary FHIR API Capability Statement"
+* name = "DisabilityAssistanceCapabilityStatement"
+* title = "API for Disability Assisance"
 * status = #draft
 * date = "2024-05-03"
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * publisher = "Health New Zealand / Te Whatu Ora"
-* description = "Disabled Patient FHIR API"
+* description = "Disability Assistance Requirements and Summary"
 * kind = #instance
-* implementation.description = "Disabled Patient FHIR API"
+* implementation.description = "Disability Assistance Requirements and Summary"
 * implementation.url = "https://fhir.api.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json

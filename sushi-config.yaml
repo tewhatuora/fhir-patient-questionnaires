@@ -24,10 +24,10 @@ releaseLabel: draft # ci-build | draft | qa-preview | ballot | trial-use | relea
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
 #
-# dependencies:
-#   fhir.org.nz.ig.base: 
-#     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
-#     version: 3.0.0
+dependencies:
+  fhir.org.nz.ig.base: 
+    uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
+    version: 3.0.0
 #
 #
 # The pages property corresponds to IG.definition.page. SUSHI can

@@ -18,27 +18,27 @@ Usage: #definition
 * contact.telecom.system = #url
 * contact.telecom.value = "https://www.tewhatuora.govt.nz/"
 
-* item[0].linkId = "p01"
+* item[0].linkId = "disclaimer"
 * item[=].prefix = "Introduction:"
 * item[=].type = #boolean
 * item[=].text = "Please confirm you are advise care providers of your assistance preferences for yourself or on behalf of an individual in need."
 * item[=].required = true
 
-* item[+].linkId = "p02"
+* item[+].linkId = "needs"
 * item[=].prefix = "Individual Need:"
 * item[=].type = #group
 * item[=].text = "Assistance"
-* item[=].enableWhen.question = "p01"
+* item[=].enableWhen.question = "disclaimer"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
 
-* item[=].item[0].linkId = "p02-q01"
+* item[=].item[0].linkId = "needs-condition"
 * item[=].item[=].type = #boolean
 * item[=].item[=].text = "Is help needed for the appointment because of a disability or impairment?"
 * item[=].item[=].required = true
 
-* item[=].item[+].linkId = "p02-q02"
-* item[=].item[=].enableWhen.question = "p02-q01"
+* item[=].item[+].linkId = "needs-assistance"
+* item[=].item[=].enableWhen.question = "needs-condition"
 * item[=].item[=].enableWhen.operator = #=
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].type = #choice

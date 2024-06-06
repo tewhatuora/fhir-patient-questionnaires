@@ -4,7 +4,7 @@ Instance: DisabilityAssistanceQuestionnaire
 InstanceOf: Questionnaire
 Description: "Disability Assistance Requirements"
 Usage: #definition
-* url = "https://build.fhir.org/ig/tewhatuora/cinc-fhir-ig/Questionnaire/DisabilityAssistanceQuestionnaire"
+* url = "https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires/Questionnaire/DisabilityAssistanceQuestionnaire"
 * identifier[0].use = #official
 * identifier[=].value = "DisabilityAssistanceQuestionnaire"
 * identifier[=].period.start = "2023-07-19"

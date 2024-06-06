@@ -9,7 +9,7 @@ Usage: #definition
 * identifier[=].period.start = "2023-07-19"
 * version = "0.2.2"
 * name = "DisabilityAssistanceQuestionnaire"
-* title = "Assistance Required based on Disability Condition"
+* title = "Disability Assistance Requirements"
 * status = #draft
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"

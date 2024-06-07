@@ -10,10 +10,12 @@ Usage: #definition
 * publisher = "Health New Zealand / Te Whatu Ora"
 * description = "Disability Assistance Requirements and Summary"
 * kind = #instance
-* implementation.description = "Disability Assistance Requirements and Summary"
-* implementation.url = "https://fhir.api.digital.health.nz/R4"
 * fhirVersion = #4.0.1
 * format = #json
+
+* implementation.description = "Disability Assistance Requirements and Summary"
+* implementation.url = "https://fhir.api.digital.health.nz/R4"
+
 * rest.mode = #server
 * rest.security.cors = true
 * rest.security.service = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth
@@ -27,35 +29,13 @@ Usage: #definition
 
 * rest.resource[+].type = #Condition
 * rest.resource[=].profile = Canonical(PatientConditionSummary|0.0.1)
-* rest.resource[=] insert QuerySearchInteraction
 * rest.resource[=] insert ResourceDocumentation([[This server profiles FHIR Condition to support NZ Disabled Patient Assistance Requirements]])
 
-* rest.resource[=].searchParam[0].name = "identifier"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Condition-masterIdentifier"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "A unique identifier of the condition record"
-
-* rest.resource[=].searchParam[0].name = "_profile"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Resource-profile"
+* rest.resource[=] insert QuerySearchInteraction
+* rest.resource[=].searchParam[0].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "Filter Condition instances tagged with the **Disabled Patient Summary** profile eg. ?_profile=https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires.fhir.ig/StructureDefinition/patient-condition-summary"
+* rest.resource[=].searchParam[=].documentation = "Who has the assistance need?"
 
-* rest.resource[=].searchParam[+].name = "category"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Condition-category"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].documentation = "	The category of the condition" 
-
-* rest.resource[=].searchParam[+].name = "recorded-date"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Condition-recordedDate"
-* rest.resource[=].searchParam[=].type = #date
-* rest.resource[=].searchParam[=].documentation = "Date Condition was first recorded"
-
-* rest.resource[=].searchParam[+].name = "patient"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#clinical-patient"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "NHI of the patient who has disbilities requiring assistance"
-
-* rest.resource[=].searchParam[+].name = "subject"
-* rest.resource[=].searchParam[=].definition = "https://hl7.org/fhir/searchparameter-registry.html#Condition-subject"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "NHI of the patient who has disbilities requiring assistance"
+* rest.resource[=] insert GenericCRUDInteractions
+* rest.resource[=].searchInclude[0] = "*"

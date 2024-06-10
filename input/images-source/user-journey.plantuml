@@ -1,0 +1,16 @@
+@startuml
+
+start
+:booking;
+if (Assistance Required Recorded?) then (yes)
+  :Verify assistance needs;
+else (no)
+  if (Assistance Required?) then (yes)
+    :Record assistance needs;
+  else (no)
+  endif
+endif
+
+stop
+
+@enduml

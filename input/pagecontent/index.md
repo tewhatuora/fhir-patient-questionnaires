@@ -1,8 +1,10 @@
 Support for capturing and retrieving disability assistance needs.
 
-### Solution Overview
+### Description
 
-The approach is to use the note attribute of [Condition](https://hl7.org/fhir/R4B/condition.html) to capture the assistance required. In future, this could be expanded to include one or more disability conditions.
+[FFC-102 : PPNHI - Build Questionnaire for process (POC)](https://mohits.atlassian.net/browse/FFC-102)
+
+This project is a subset of the larger PPNHI process.  The work carried out here is for a POC. 
 
 ### User Journey
 
@@ -13,4 +15,7 @@ The approach is to use the note attribute of [Condition](https://hl7.org/fhir/R4
 
 ### Use Cases
 
-- [FFC-96](/special-assistance.html)
+[FFC-96: PPNHI - Special Assistance Questionnaire](/special-assistance.html)
+
+This is a sample set of questions from Book My Vaccine. This is all that is required for the POC. This version will not progress past Testing.
+

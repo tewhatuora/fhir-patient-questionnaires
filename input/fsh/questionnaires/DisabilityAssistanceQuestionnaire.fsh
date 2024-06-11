@@ -21,7 +21,7 @@ Usage: #definition
 * item[0].linkId = "disclaimer"
 * item[=].prefix = "Introduction:"
 * item[=].type = #boolean
-* item[=].text = "Please confirm you are advise care providers of your assistance preferences for yourself or on behalf of an individual in need."
+* item[=].text = "Please confirm that this assistance preference is for an individual in need."
 * item[=].required = true
 
 * item[+].linkId = "needs"

@@ -11,6 +11,7 @@ Id: patient-condition-summary
 * ^version = "0.0.1"
 
 // custom extension
+* extension ^short = "Extend Condition to capture assistance needs based on CodeSet"
 * extension contains AssistanceNeedsExtension named assistanceNeeds 0..*
 
 // elements suppressed

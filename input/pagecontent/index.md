@@ -6,14 +6,12 @@ Support for capturing and retrieving disability assistance needs.
 
 This project is a subset of the larger PPNHI process.  The work carried out here is for a POC. 
 
-### User Journey
+### Use Cases
 
 <div width="70%">
 <!-- Generated from `input/images-source/use-case.plantuml` -->
 {% include use-case.svg %}
 </div>
-
-### Use Cases
 
 [FFC-96: PPNHI - Special Assistance Questionnaire](/special-assistance.html)
 

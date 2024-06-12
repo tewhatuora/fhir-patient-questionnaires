@@ -9,9 +9,14 @@ info:
 servers:
   - url: https://fhir.api.digital.health.nz/R4
     description: Disability Assistance Requirements and Summary
+tags:
+  - name: default
+    description: System Default endpoints
 paths:
   /Condition:
     post:
+      tags:
+        - default
       summary: Create a new Condition
       operationId: createCondition
       requestBody:
@@ -32,6 +37,8 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
     get:
+      tags:
+        - default
       summary: Search for Condition
       operationId: search-typeCondition
       parameters:
@@ -53,6 +60,8 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
   /Condition/{rid}:
     get:
+      tags:
+        - default
       summary: Retrieve Condition
       operationId: readCondition
       parameters:
@@ -71,6 +80,8 @@ paths:
         '404':
           $ref: '#/components/responses/NotFoundError'
     put:
+      tags:
+        - default
       summary: Update an existing Condition
       operationId: updateCondition
       parameters:
@@ -94,6 +105,8 @@ paths:
         '404':
           $ref: '#/components/responses/NotFoundError'
     delete:
+      tags:
+        - default
       summary: Delete an existing Condition
       operationId: deleteCondition
       parameters:
@@ -108,9 +121,37 @@ paths:
 components:
   schemas:
     Bundle:
-      $ref: https://fhir.opennz.org/Bundle
+      description: A container for a collection of resources.
+      properties:
+        resourceType:
+          description: This is a Bundle resource
+        id:
+          description: >-
+            The logical id of the resource, as used in the URL for the resource.
+            Once assigned, this value never changes.
+          $ref: https://fhir.opennz.org/id
+      type: object
+      additionalProperties: false
+      required:
+        - resourceType
     Condition:
-      $ref: https://fhir.opennz.org/Condition
+      description: >-
+        A clinical condition, problem, diagnosis, or other event, situation,
+        issue, or clinical concept that has risen to a level of concern.
+      properties:
+        resourceType:
+          description: This is a Condition resource
+        id:
+          description: >-
+            The logical id of the resource, as used in the URL for the resource.
+            Once assigned, this value never changes.
+          $ref: https://fhir.opennz.org/id
+      type: object
+      additionalProperties: false
+      required:
+        - subject
+        - clinicalStatus
+        - resourceType
   securitySchemes:
     oauth2:
       type: oauth2

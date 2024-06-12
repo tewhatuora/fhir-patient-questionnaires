@@ -2,10 +2,9 @@ Support for capturing and retrieving disability assistance needs.
 
 ### Solution Overview
 
-[IS-2252: PPNHI Questionnaire](https://mohits.atlassian.net/browse/IS-2252)
+The auto-generated OAS file has been left unaltered, however, this file is not usable in its default output, so the following have been provided, for the following task
 
-The approach is to use the note attribute of [Condition](https://hl7.org/fhir/R4B/condition.html) to capture the assistance required. In future, this could be expanded to include one or more disability conditions.
+[IS-2255: Create PPNHI postman collection](https://mohits.atlassian.net/browse/IS-2255)
 
-Searching for existing assistance needs, capturing needs or updated existing needs will be supported through multiple operations on a single API end-point.
-
-Se thin-dereferenced OpenAPI Specification [DisabilityAssistanceCapabilityStatement.openapi.yaml](/DisabilityAssistanceCapabilityStatement.openapi.yaml)
+- Thin-dereferenced OpenAPI Specification [DisabilityAssistanceCapabilityStatement.openapi.yaml](/DisabilityAssistanceCapabilityStatement.openapi.yaml)
+- Draft Postman Collection [Assistance.postman_collection](/Assistance.postman_collection)

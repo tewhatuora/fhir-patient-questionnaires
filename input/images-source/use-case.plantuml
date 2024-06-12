@@ -1,0 +1,8 @@
+@startuml
+
+left to right direction
+usecase "Assistance Needs for Vacination Booking" as UC1
+Patient --> (UC1)
+Provider --> (UC1)
+
+@enduml

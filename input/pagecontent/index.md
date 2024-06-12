@@ -9,8 +9,8 @@ This project is a subset of the larger PPNHI process.  The work carried out here
 ### User Journey
 
 <div width="70%">
-<!-- Generated from `input/images-source/user-journey.plantuml` -->
-{% include user-journey.svg %}
+<!-- Generated from `input/images-source/use-case.plantuml` -->
+{% include use-case.svg %}
 </div>
 
 ### Use Cases

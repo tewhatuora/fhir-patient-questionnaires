@@ -1,5 +1,12 @@
 This is all that is required for the POC. This version will not progress past Testing.
 
+### User Journey
+
+<div width="70%">
+<!-- Generated from `input/images-source/user-journey.plantuml` -->
+{% include user-journey.svg %}
+</div>
+
 ### User Story
 
 > FFC-96.

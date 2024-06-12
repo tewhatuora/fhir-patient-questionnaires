@@ -1,4 +1,4 @@
-Profile: PatientConditionSummary
+Profile: AssistanceNeedsProfile
 Parent: Condition
 Description: "Summary of Patient Conditions"
 Id: patient-condition-summary
@@ -14,7 +14,6 @@ Id: patient-condition-summary
 * extension contains AssistanceNeedsExtension named assistanceNeeds 0..*
 
 // elements suppressed
-* clinicalStatus 0..0
 * verificationStatus 0..0
 * category 0..0
 * severity 0..0

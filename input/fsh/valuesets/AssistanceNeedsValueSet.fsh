@@ -1,16 +1,5 @@
 ValueSet: AssistanceNeedsValueSet
-Id: assistance-needs
-Title: "Assistance Needs Value Set"
-Description: "Value set for capturing a set of assistance needs."
-* compose.include.concept[+].code = "nzsli"
-  * compose.include.concept[=].display = "A New Zealand Sign Language interpreter"
-* compose.include.concept[+].code = "smd"
-  * compose.include.concept[=].display = "Support to make decisions"
-* compose.include.concept[+].code = "amr"
-  * compose.include.concept[=].display = "Assistance to move around"
-* compose.include.concept[+].code = "lat"
-  * compose.include.concept[=].display = "A longer appointment time"
-* compose.include.concept[+].code = "qse"
-  * compose.include.concept[=].display = "A quiet or low sensory environment"
-* compose.include.concept[+].code = "msm"
-  * compose.include.concept[=].display = "More space to move around"
+Id: assistance-needs-vs
+Title: "Assistance Needs ValueSet"
+Description: "A ValueSet including all codes from the Assistance Needs CodeSystem."
+* include codes from system AssistanceNeedsCodeSet

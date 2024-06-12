@@ -21,7 +21,7 @@ Usage: #definition
 * item[0].linkId = "disclaimer"
 * item[=].prefix = "Introduction:"
 * item[=].type = #boolean
-* item[=].text = "Please confirm you are advise care providers of your assistance preferences for yourself or on behalf of an individual in need."
+* item[=].text = "Please confirm that this assistance preference is for an individual in need."
 * item[=].required = true
 
 * item[+].linkId = "needs"
@@ -43,12 +43,7 @@ Usage: #definition
 * item[=].item[=].enableWhen.answerBoolean = true
 * item[=].item[=].type = #choice
 * item[=].item[=].text = "What type of assistance to you require?"
-* item[=].item[=].answerOption[0].valueCoding.display = "A New Zealand Sign Language interpreter"
-* item[=].item[=].answerOption[+].valueCoding.display = "Support to make decisions"
-* item[=].item[=].answerOption[+].valueCoding.display = "Assistance to move around"
-* item[=].item[=].answerOption[+].valueCoding.display = "A longer appointment time"
-* item[=].item[=].answerOption[+].valueCoding.display = "A quiet or low sensory environment"
-* item[=].item[=].answerOption[+].valueCoding.display = "More space to move around"
+* item[=].item[=].answerValueSet = Canonical(AssistanceNeedsValueSet)
 * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 * item[=].item[=].extension.valueCodeableConcept.text = "Drop down"

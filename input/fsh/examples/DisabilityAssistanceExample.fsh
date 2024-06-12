@@ -17,7 +17,10 @@ Description: "Required Assistance: A New Zealand Sign Language interpreter"
 * subject.identifier.value = "SCF12345678"
 * subject.display = "Nina Gilbert"
 
-// Setting the note field (Annotation) to capture disability assistance requirements
-* note[0].text = "Required Assistance: A New Zealand Sign Language interpreter"
-* note[0].authorReference = Reference(Patient/1198)
-* note[0].time = "2023-10-19T12:00:00Z"
+* clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
+
+// Assistance Needs Extension
+* extension[0].url = Canonical(AssistanceNeedsExtension)
+* extension[0].valueCodeableConcept.coding[0].system = Canonical(AssistanceNeedsCodeSet)
+* extension[0].valueCodeableConcept.coding[0].code = #nzsli
+* extension[0].valueCodeableConcept.coding[0].display = "A New Zealand Sign Language interpreter"

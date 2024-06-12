@@ -9,14 +9,69 @@ info:
 servers:
   - url: https://fhir.api.digital.health.nz/R4
     description: Disability Assistance Requirements and Summary
-tags:
-  - name: default
-    description: System Default endpoints
 paths:
+  /metadata:
+    summary: Access to the Server's Capability Statement
+    description: >-
+      All FHIR Servers return a CapabilityStatement that describes what services
+      they perform
+    get:
+      security: []
+      summary: Return the server's capability statement
+      operationId: metadata
+      responses:
+        '200':
+          description: the capability statement
+          content:
+            application/fhir+json:
+              schema:
+                description: >-
+                  A Capability Statement documents a set of capabilities
+                  (behaviors) of a FHIR Server or Client for a particular
+                  version of FHIR that may be used as a statement of actual
+                  server functionality or a statement of required or desired
+                  server implementation.
+                properties:
+                  resourceType:
+                    description: This is a CapabilityStatement resource
+                  id:
+                    description: >-
+                      The logical id of the resource, as used in the URL for the
+                      resource. Once assigned, this value never changes.
+                    pattern: ^[A-Za-z0-9\-\.]{1,64}$
+                    type: string
+                type: object
+                additionalProperties: false
+                required:
+                  - resourceType
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                description: >-
+                  A collection of error, warning, or information messages that
+                  result from a system action.
+                properties:
+                  resourceType:
+                    description: This is a OperationOutcome resource
+                  id:
+                    description: >-
+                      The logical id of the resource, as used in the URL for the
+                      resource. Once assigned, this value never changes.
+                    pattern: ^[A-Za-z0-9\-\.]{1,64}$
+                    type: string
+                type: object
+                additionalProperties: false
+                required:
+                  - issue
+                  - resourceType
   /Condition:
     post:
-      tags:
-        - default
       summary: Create a new Condition
       operationId: createCondition
       requestBody:
@@ -37,8 +92,6 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
     get:
-      tags:
-        - default
       summary: Search for Condition
       operationId: search-typeCondition
       parameters:
@@ -60,8 +113,6 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
   /Condition/{rid}:
     get:
-      tags:
-        - default
       summary: Retrieve Condition
       operationId: readCondition
       parameters:
@@ -80,8 +131,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFoundError'
     put:
-      tags:
-        - default
       summary: Update an existing Condition
       operationId: updateCondition
       parameters:
@@ -105,8 +154,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFoundError'
     delete:
-      tags:
-        - default
       summary: Delete an existing Condition
       operationId: deleteCondition
       parameters:
@@ -125,11 +172,6 @@ components:
       properties:
         resourceType:
           description: This is a Bundle resource
-        id:
-          description: >-
-            The logical id of the resource, as used in the URL for the resource.
-            Once assigned, this value never changes.
-          $ref: https://fhir.opennz.org/id
       type: object
       additionalProperties: false
       required:
@@ -141,11 +183,6 @@ components:
       properties:
         resourceType:
           description: This is a Condition resource
-        id:
-          description: >-
-            The logical id of the resource, as used in the URL for the resource.
-            Once assigned, this value never changes.
-          $ref: https://fhir.opennz.org/id
       type: object
       additionalProperties: false
       required:

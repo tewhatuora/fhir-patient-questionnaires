@@ -6,21 +6,22 @@ Usage: #example
 * meta.profile = Canonical(http://hl7.org.nz/fhir/StructureDefinition/NzPatient)
 // * meta.versionId = "1" cannot be used here as this content is used in contained instances where the container is versioned
 
-* identifier insert NHIIdentifier(SCF7826)
+* identifier insert NHIIdentifier(DAN0001)
 
 * name.use = #usual
-* name.family = "Gilbert"
-* name.given = "Nina"
+* name.family = "Christabel"
+* name.given = "Marieke"
 
-* birthDate = "1968-11-24"
+* birthDate = "1987-08-06"
+* gender = #female
 
 * extension[ethnicity].url = "http://hl7.org.nz/fhir/StructureDefinition/nz-ethnicity"
 * extension[ethnicity].valueCodeableConcept = https://standards.digital.health.nz/ns/ethnic-group-level-4-code#21111 "Māori"
 
 * address[0].use = #home
-* address[=].text = "375 Jackson Street, Petone, Lower Hutt 5012, New Zealand"
-* address[=].line[0] = "375 Jackson Street"
-* address[=].line[+] = "Petone"
-* address[=].city = "Lower Hutt"
-* address[=].postalCode = "5012"
+* address[=].text = "219 Hunter Street, Whataupoko, LGisborne 4010, New Zealand"
+* address[=].line[0] = "219 Hunter Street"
+* address[=].line[+] = "Whataupoko"
+* address[=].city = "LGisborne"
+* address[=].postalCode = "4010"
 * address[=].country = "NZL"

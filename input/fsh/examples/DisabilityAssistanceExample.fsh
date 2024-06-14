@@ -15,7 +15,7 @@ Description: "Required Assistance: A New Zealand Sign Language interpreter"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"
 * subject.identifier.value = "SCF12345678"
-* subject.display = "Nina Gilbert"
+* subject.display = "Marieke Christabel"
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 

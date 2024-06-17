@@ -3,17 +3,17 @@ InstanceOf: CapabilityStatement
 Usage: #definition
 
 * name = "DisabilityAssistanceCapabilityStatement"
-* title = "API for Disability Assisance"
+* title = "Assistance Needs API"
 * status = #draft
 * date = "2024-05-03"
 * jurisdiction = urn:iso:std:iso:3166#NZ "New Zealand"
 * publisher = "Health New Zealand / Te Whatu Ora"
-* description = "Disability Assistance Requirements and Summary"
+* description = "Assistance Requirements and Summary"
 * kind = #instance
 * fhirVersion = #4.0.1
 * format = #json
 
-* implementation.description = "Disability Assistance Requirements and Summary"
+* implementation.description = "Assistance Requirements and Summary"
 * implementation.url = "https://fhir.api.digital.health.nz/R4"
 
 * rest.mode = #server

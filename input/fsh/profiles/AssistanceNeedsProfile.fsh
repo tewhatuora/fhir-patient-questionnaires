@@ -1,7 +1,8 @@
 Profile: AssistanceNeedsProfile
 Parent: Condition
-Description: "Summary of Patient Conditions"
-Id: patient-condition-summary
+Description: "Extension of Conditions for capturing Patient assistance needs"
+Id: assistance-needs-profile
+Title: "Assistance Needs Profle"
 
 // There's very few options for representing this kind of info in FHIR.  The only other thing I've found is this
 // generic extension to Patient for disability https://hl7.org/fhir/r4/extension-patient-disability.html

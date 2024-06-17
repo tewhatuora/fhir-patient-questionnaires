@@ -1,15 +1,15 @@
 Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-control
 
-Instance: DisabilityAssistanceQuestionnaire
+Instance: AssistanceNeedsQuestionnaire
 InstanceOf: Questionnaire
-Description: "Disability Assistance Requirements"
+Description: "Assistance Requirements selection from terminology server"
 Usage: #definition
 * identifier[0].use = #official
-* identifier[=].value = "DisabilityAssistanceQuestionnaire"
+* identifier[=].value = "assistance-needs-questionnaire"
 * identifier[=].period.start = "2023-07-19"
 * version = "0.2.2"
-* name = "DisabilityAssistanceQuestionnaire"
-* title = "Questionnaire Disability Assistance"
+* name = "AssistanceNeedsQuestionnaire"
+* title = "Assistance Needs Questionnaire"
 * status = #draft
 * subjectType = #Patient
 * publisher = "Te Whatu Ora"

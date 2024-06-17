@@ -4,8 +4,8 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: tewhatuora.fhir.patient-questionnaires
-canonical: https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires
-# canonical: http://localhost:8080/fhir
+# canonical: https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires
+canonical: http://localhost:8080/fhir
 name: Te Whatu Ora FHIR Patient Questionnaires Implementation Guide
 title: Te Whatu Ora FHIR Patient Questionnaires Implementation Guide
 description: Te Whatu Ora Patient Questionnaires Implementation Guide
@@ -21,9 +21,9 @@ releaseLabel: draft # ci-build | draft | qa-preview | ballot | trial-use | relea
 #   url: https://www.tewhatuora.govt.nz/
   # email: test@example.org
 
-# publisher:
-#   name: Te Whatu Ora
-#   url: https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires
+publisher:
+  name: Te Whatu Ora
+  url: https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (or dev/current). For advanced

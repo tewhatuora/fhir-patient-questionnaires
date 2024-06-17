@@ -30,16 +30,7 @@ Usage: #definition
 * item[=].enableWhen.question = "disclaimer"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
-
-* item[=].item[0].linkId = "needs-condition"
-* item[=].item[=].type = #boolean
-* item[=].item[=].text = "Is help needed for the appointment because of a disability or impairment?"
-* item[=].item[=].required = true
-
-* item[=].item[+].linkId = "needs-assistance"
-* item[=].item[=].enableWhen.question = "needs-condition"
-* item[=].item[=].enableWhen.operator = #=
-* item[=].item[=].enableWhen.answerBoolean = true
+* item[=].item[0].linkId = "needs-assistance"
 * item[=].item[=].type = #choice
 * item[=].item[=].text = "What type of assistance to you require?"
 * item[=].item[=].answerValueSet = Canonical(AssistanceNeedsValueSet)

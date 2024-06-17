@@ -21,6 +21,6 @@ Description: "Required Assistance: A New Zealand Sign Language interpreter"
 
 // Assistance Needs Extension
 * extension[0].url = Canonical(AssistanceNeedsExtension)
-* extension[0].valueCodeableConcept.coding[0].system = Canonical(AssistanceNeedsCodeSet)
+* extension[0].valueCodeableConcept.coding[0].system = Canonical(AssistanceNeedsCodeSystem)
 * extension[0].valueCodeableConcept.coding[0].code = #nzsli
 * extension[0].valueCodeableConcept.coding[0].display = "A New Zealand Sign Language interpreter"

@@ -1,0 +1,14 @@
+@startuml
+actor Salesforce
+participant "Mulesoft"
+participant "API Gateway"
+participant "Database Server"
+
+Salesforce -> Mulesoft: Send request
+Mulesoft -> "API Gateway": Forward request
+"API Gateway" -> "Database Server": Forward request
+"Database Server" -> "API Gateway": Send response
+"API Gateway" -> Mulesoft: Send response
+Mulesoft -> Salesforce: Send response
+
+@enduml

@@ -14,12 +14,12 @@ Title: "Assistance Needs Profle"
 // custom extension
 * extension ^short = "Extend Condition to capture assistance needs based on CodeSet"
 * extension contains AssistanceNeedsExtension named assistanceNeeds 0..*
+* category 0..1
+* code 0..1
 
 // elements suppressed
 * verificationStatus 0..0
-* category 0..0
 * severity 0..0
-* code 0..0
 * onsetDateTime 0..0
 * onsetPeriod 0..0
 * onsetRange 0..0

@@ -8,8 +8,8 @@ Description: "Appointment Assistance Needs."
 * ^caseSensitive = true
 * ^purpose = "List of supported assistance needs."
 
-* #nzsli "A New Zealand Sign Language interpreter"
-* #smd "Support to make decisions"
+* #171671000210109 "A New Zealand Sign Language interpreter"
+* #133920001 "Support to make decisions"
 * #amr "Assistance to move around"
 * #lat "A longer appointment time"
 * #qse "A quiet or low sensory environment"

@@ -2,12 +2,12 @@
 actor Salesforce
 participant "Mulesoft"
 participant "API Gateway"
-participant "Database Server"
+participant "FHIR Server"
 
 Salesforce -> Mulesoft: Send request
-Mulesoft -> "API Gateway": Forward request
-"API Gateway" -> "Database Server": Forward request
-"Database Server" -> "API Gateway": Send response
+Mulesoft -> "API Gateway": Search "assistance needs" by NHI
+"API Gateway" -> "FHIR Server": Forward request
+"FHIR Server" -> "API Gateway": FHIR Bundle
 "API Gateway" -> Mulesoft: Send response
 Mulesoft -> Salesforce: Send response
 

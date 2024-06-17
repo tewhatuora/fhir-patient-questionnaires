@@ -1,0 +1,1 @@
+Alias: $preferredTermServer = https://nzhts.digital.health.nz/fhir

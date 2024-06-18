@@ -8,7 +8,8 @@ Salesforce -> Mulesoft: Send request
 Mulesoft -> "API Gateway": Search "assistance needs" by NHI
 "API Gateway" -> "FHIR Server": Forward request
 "FHIR Server" -> "API Gateway": FHIR Bundle
-"API Gateway" -> Mulesoft: Send response
+"API Gateway" -> Mulesoft: FHIR Bundle
+Mulesoft -> Mulesoft : transform(FHIR Bundle)
 Mulesoft -> Salesforce: Send response
 
 @enduml

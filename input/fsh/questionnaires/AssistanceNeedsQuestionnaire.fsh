@@ -4,6 +4,7 @@ Instance: AssistanceNeedsQuestionnaire
 InstanceOf: Questionnaire
 Description: "Assistance Requirements selection from terminology server"
 Usage: #definition
+
 * identifier[0].use = #official
 * identifier[=].value = "assistance-needs-questionnaire"
 * identifier[=].period.start = "2023-07-19"
@@ -47,7 +48,8 @@ Usage: #definition
 * item[=].item[=].extension[0].valueBoolean = true
 
 // * item[=].item[+].linkId = "needs_assistance"
-// * item[=].item[=].type = #choice
+// * item[=].item[=].type = #open-choice
+// * item[=].item[=].repeats = true
 // * item[=].item[=].text = "What type of assistance to you require?"
 // * item[=].item[=].answerValueSet = Canonical(AssistanceNeedsValueSet)
 // * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"

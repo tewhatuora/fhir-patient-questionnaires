@@ -1,4 +1,4 @@
-Instance: DisabilityAssistanceExample
+Instance: NeedsAssistanceExample
 InstanceOf: AssistanceNeedsProfile
 Usage: #example
 Description: "Required Assistance: A New Zealand Sign Language interpreter"

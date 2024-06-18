@@ -71,26 +71,6 @@ paths:
                   - issue
                   - resourceType
   /Condition:
-    post:
-      summary: Create a new Condition
-      operationId: createCondition
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Condition'
-      parameters:
-        - $ref: '#/components/parameters/format'
-        - $ref: '#/components/parameters/pretty'
-      responses:
-        '201':
-          description: Resource created successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Condition'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
     get:
       summary: Search for Condition
       operationId: search-typeCondition
@@ -100,6 +80,21 @@ paths:
         - $ref: '#/components/parameters/summary'
         - $ref: '#/components/parameters/elements'
         - $ref: '#/components/parameters/count'
+        - name: patient
+          in: query
+          description: Patient NHI Number
+          schema:
+            type: string
+        - name: category
+          in: query
+          description: Search by condition category
+          schema:
+            type: string
+        - name: code
+          in: query
+          description: Search by condition code
+          schema:
+            type: string          
       responses:
         '200':
           description: Successful response
@@ -126,41 +121,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Condition'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-    put:
-      summary: Update an existing Condition
-      operationId: updateCondition
-      parameters:
-        - $ref: '#/components/parameters/rid'
-        - $ref: '#/components/parameters/format'
-        - $ref: '#/components/parameters/pretty'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Condition'
-      responses:
-        '200':
-          description: Resource updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Condition'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundError'
-    delete:
-      summary: Delete an existing Condition
-      operationId: deleteCondition
-      parameters:
-        - $ref: '#/components/parameters/rid'
-      responses:
-        '204':
-          description: If the resource is deleted - no content is returned
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':

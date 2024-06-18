@@ -1,4 +1,4 @@
-Instance: DisabilityAssistanceResponse
+Instance: NeedsAssistanceResponse
 InstanceOf: QuestionnaireResponse
 Description: "Example response for NZ Sign Language Assistance"
 Usage: #example
@@ -19,7 +19,7 @@ Usage: #example
 * item[=].item[+].linkId = "code"
 * item[=].item[=].answer[0].valueCoding.code = #371152001
 
-* item[=].item[+].linkId = "needs-assistance"
+* item[=].item[+].linkId = "needs_assistance"
 * item[=].item[=].text = "What type of assistance do you require?"
 * item[=].item[=].answer[0].valueCoding.system = "http://localhost:8080/fhir/CodeSystem/assistance-needs-cs"
 * item[=].item[=].answer[0].valueCoding.code = #171671000210109

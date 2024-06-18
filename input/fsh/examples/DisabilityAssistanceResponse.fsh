@@ -5,7 +5,6 @@ Usage: #example
 
 * status = #completed
 * questionnaire = Canonical(AssistanceNeedsQuestionnaire)
-* subject = Reference(Patient/1198)
 * authored = "2024-06-17T12:00:00Z"
 * item[0].linkId = "disclaimer"
 * item[=].text = "Please confirm that this assistance preference is for an individual in need."

@@ -10,7 +10,6 @@ Description: "Required Assistance: A New Zealand Sign Language interpreter"
 // * Condition.clinicalStatus = "none"
 
 // form a Patient reference to both a logical (NHI) resource and and a local literal resource
-* subject = Reference(Patient/1198)
 * subject.type = "Patient"
 * subject.identifier.use = #official
 * subject.identifier.system = "https://standards.digital.health.nz/ns/nhi-id"

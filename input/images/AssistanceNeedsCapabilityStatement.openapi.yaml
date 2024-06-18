@@ -95,6 +95,11 @@ paths:
             - system/Condition.r      
       operationId: search-typeCondition
       parameters:
+        # Headers
+        - $ref: '#/components/parameters/X-Api-Key'
+        - $ref: '#/components/parameters/X-Request-Context'
+        
+        # Query        
         - $ref: '#/components/parameters/format'
         - $ref: '#/components/parameters/pretty'
         - $ref: '#/components/parameters/summary'
@@ -137,6 +142,11 @@ paths:
         -  oauth2:
             - system/Condition.r      
       parameters:
+        # Headers
+        - $ref: '#/components/parameters/X-Api-Key'
+        - $ref: '#/components/parameters/X-Request-Context'
+
+        # Query        
         - $ref: '#/components/parameters/rid'
         - $ref: '#/components/parameters/format'
         - $ref: '#/components/parameters/pretty'
@@ -151,44 +161,21 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundError'
+
 components:
-  schemas:
-    Bundle:
-      description: A container for a collection of resources.
-      properties:
-        resourceType:
-          description: This is a Bundle resource
-      type: object
-      additionalProperties: false
-      required:
-        - resourceType
-    Condition:
-      description: >-
-        A clinical condition, problem, diagnosis, or other event, situation,
-        issue, or clinical concept that has risen to a level of concern.
-      properties:
-        resourceType:
-          description: This is a Condition resource
-      type: object
-      additionalProperties: false
-      required:
-        - subject
-        - clinicalStatus
-        - resourceType
-  securitySchemes:
-    api_key:
-      type: "apiKey"
+  parameters: 
+    X-Api-Key:
       name: "x-api-key"
       in: "header"
-    oauth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://auth.integration.covid19.health.nz/oauth2/authorize
-          tokenUrl: https://auth.integration.covid19.health.nz/oauth2/token
-          scopes:
-            system/Condition.r: Grant read access to Medicine resources
-  parameters:
+      required: true
+      schema:
+        type: "string"
+    X-Request-Context:
+      name: "X-Request-Context"
+      in: "header"
+      required: false
+      schema:
+        type: "string"
     rid:
       name: rid
       in: path
@@ -230,7 +217,7 @@ components:
       allowEmptyValue: true
       style: form
       schema:
-        type: boolean
+          type: boolean
     elements:
       name: _elements
       in: query
@@ -251,6 +238,45 @@ components:
         to return the number requested, but cannot return more
       schema:
         type: number
+
+  schemas:
+    Bundle:
+      description: A container for a collection of resources.
+      properties:
+        resourceType:
+          description: This is a Bundle resource
+      type: object
+      additionalProperties: false
+      required:
+        - resourceType
+    Condition:
+      description: >-
+        A clinical condition, problem, diagnosis, or other event, situation,
+        issue, or clinical concept that has risen to a level of concern.
+      properties:
+        resourceType:
+          description: This is a Condition resource
+      type: object
+      additionalProperties: false
+      required:
+        - subject
+        - clinicalStatus
+        - resourceType
+
+  securitySchemes:
+    X-Api-Key:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.integration.covid19.health.nz/oauth2/authorize
+          tokenUrl: https://auth.integration.covid19.health.nz/oauth2/token
+          scopes:
+            system/Condition.r: Grant read access to Medicine resources
+
   responses:
     UnauthorizedError:
       description: Unauthorized

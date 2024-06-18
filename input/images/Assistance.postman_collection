@@ -1,1199 +1,310 @@
 {
 	"info": {
-		"_postman_id": "7bed5354-8a85-4fc8-ac64-57b54cc9400d",
-		"name": "API for Disability Assisance",
-		"description": "Disability Assistance Requirements and Summary",
+		"_postman_id": "da455d58-963b-4aaa-9807-4a8736614e18",
+		"name": "PPHI -> FHIRWORKS Condition",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34612325"
+		"_exporter_id": "24402966",
+		"_collection_link": "https://solar-zodiac-557375.postman.co/workspace/PPHI~a9a80fd1-121c-49a0-8890-097f8196dae7/collection/24402966-da455d58-963b-4aaa-9807-4a8736614e18?action=share&source=collection_link&creator=24402966"
 	},
 	"item": [
 		{
-			"name": "metadata",
+			"name": "Authorise to FHIR Server Copy",
 			"item": [
 				{
-					"name": "Return the server's capability statement",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/fhir+json"
+					"name": "1.1. Get Cognito Access Token (client_credentials)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"COGNITO_TOKEN\", jsonData['access_token']);",
+									""
+								],
+								"type": "text/javascript"
 							}
-						],
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{COGNITO_CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{COGNITO_CLIENT_SECRET}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "scope/cinc",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{baseUrl}}/metadata",
+							"raw": "{{AUTH_URL}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"metadata"
+								"{{AUTH_URL}}"
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "the capability statement",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/fhir+json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/metadata",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"metadata"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/fhir+json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n  \"resourceType\": {\n    \"description\": \"This is a CapabilityStatement resource\"\n  },\n  \"id\": \"dJj7qNoaNeaXqW7fGMerOIBMY5rO\"\n}"
-						},
-						{
-							"name": "Unauthorized",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/metadata",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"metadata"
-									]
-								}
-							},
-							"status": "Unauthorized",
-							"code": 401,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "<string>"
-						},
-						{
-							"name": "Resource not found",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/metadata",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"metadata"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "<string>"
-						},
-						{
-							"name": "Error, with details",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/fhir+json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/metadata",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"metadata"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/fhir+json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n  \"resourceType\": {\n    \"description\": \"This is a OperationOutcome resource\"\n  },\n  \"id\": \"2qWthH0ATBd-jj3donEiiNwita8\"\n}"
-						}
-					]
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "Condition",
+			"name": "Seed Condition",
 			"item": [
 				{
-					"name": "{rid}",
-					"item": [
+					"name": "Post Condition",
+					"event": [
 						{
-							"name": "Retrieve Condition",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check status code\", () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"const id = pm.response.json().id;\r",
+									"pm.environment.set(\"T-ConditionID\", id);\r",
+									""
 								],
-								"url": {
-									"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"Condition",
-										":rid"
-									],
-									"query": [
-										{
-											"key": "_format",
-											"value": "<string>",
-											"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-										},
-										{
-											"key": "_pretty",
-											"value": "<boolean>",
-											"description": "Ask for a pretty printed response for human convenience"
-										}
-									],
-									"variable": [
-										{
-											"key": "rid",
-											"value": "<string>",
-											"description": "(Required) id of the resource (=Resource.id)"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "Successful response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"query": [
-												{
-													"key": "_format",
-													"value": "<string>",
-													"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-												},
-												{
-													"key": "_pretty",
-													"value": "<boolean>",
-													"description": "Ask for a pretty printed response for human convenience"
-												}
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}"
-								},
-								{
-									"name": "Unauthorized",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"query": [
-												{
-													"key": "_format",
-													"value": "<string>",
-													"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-												},
-												{
-													"key": "_pretty",
-													"value": "<boolean>",
-													"description": "Ask for a pretty printed response for human convenience"
-												}
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "Unauthorized",
-									"code": 401,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "<string>"
-								},
-								{
-									"name": "Resource not found",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"query": [
-												{
-													"key": "_format",
-													"value": "<string>",
-													"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-												},
-												{
-													"key": "_pretty",
-													"value": "<boolean>",
-													"description": "Ask for a pretty printed response for human convenience"
-												}
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "<string>"
-								}
-							]
+								"type": "text/javascript",
+								"packages": {}
+							}
 						},
 						{
-							"name": "Update an existing Condition",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const date = new Date();\r",
+									"pm.variables.set(\"CURRENT_DATE\", date.toISOString().slice(0, 10));\r",
+									"pm.variables.set(\"CURRENT_TIME\", date.toISOString());\r",
+									"\r",
+									"date.setDate(date.getDate() + 49);\r",
+									"pm.variables.set(\"CURRENT_DATE_PLUS_49\", date.toISOString().slice(0, 10));\r",
+									""
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"Condition",
-										":rid"
-									],
-									"query": [
-										{
-											"key": "_format",
-											"value": "<string>",
-											"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-										},
-										{
-											"key": "_pretty",
-											"value": "<boolean>",
-											"description": "Ask for a pretty printed response for human convenience"
-										}
-									],
-									"variable": [
-										{
-											"key": "rid",
-											"value": "<string>",
-											"description": "(Required) id of the resource (=Resource.id)"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "Resource updated successfully",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}",
-											"options": {
-												"raw": {
-													"headerFamily": "json",
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"query": [
-												{
-													"key": "_format",
-													"value": "<string>",
-													"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-												},
-												{
-													"key": "_pretty",
-													"value": "<boolean>",
-													"description": "Ask for a pretty printed response for human convenience"
-												}
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}"
-								},
-								{
-									"name": "Unauthorized",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}",
-											"options": {
-												"raw": {
-													"headerFamily": "json",
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"query": [
-												{
-													"key": "_format",
-													"value": "<string>",
-													"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-												},
-												{
-													"key": "_pretty",
-													"value": "<boolean>",
-													"description": "Ask for a pretty printed response for human convenience"
-												}
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "Unauthorized",
-									"code": 401,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "<string>"
-								},
-								{
-									"name": "Resource not found",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}",
-											"options": {
-												"raw": {
-													"headerFamily": "json",
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid?_format=<string>&_pretty=<boolean>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"query": [
-												{
-													"key": "_format",
-													"value": "<string>",
-													"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-												},
-												{
-													"key": "_pretty",
-													"value": "<boolean>",
-													"description": "Ask for a pretty printed response for human convenience"
-												}
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "<string>"
-								}
-							]
-						},
-						{
-							"name": "Delete an existing Condition",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/Condition/:rid",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"Condition",
-										":rid"
-									],
-									"variable": [
-										{
-											"key": "rid",
-											"value": "<string>",
-											"description": "(Required) id of the resource (=Resource.id)"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "If the resource is deleted - no content is returned",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "No Content",
-									"code": 204,
-									"_postman_previewlanguage": "text",
-									"header": [],
-									"cookie": [],
-									"body": ""
-								},
-								{
-									"name": "Unauthorized",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "Unauthorized",
-									"code": 401,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "<string>"
-								},
-								{
-									"name": "Resource not found",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: oauth2",
-												"key": "Authorization",
-												"value": "<token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/Condition/:rid",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"Condition",
-												":rid"
-											],
-											"variable": [
-												{
-													"key": "rid"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "<string>"
-								}
-							]
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
-					]
-				},
-				{
-					"name": "Create a new Condition",
+					],
 					"request": {
 						"method": "POST",
 						"header": [
 							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}",
+							"raw": "{\r\n  \"resourceType\": \"Condition\",\r\n  \"meta\": {\r\n    \"versionId\": \"0.0.1\"\r\n  },\r\n  \"extension\": [\r\n    {\r\n      \"url\": \"https://www.example.com\",\r\n      \"valueCodeableConcept\": {\r\n        \"coding\": [\r\n          {\r\n            \"system\": \"https://www.example.com\",\r\n            \"code\": \"171671000210109\",\r\n            \"display\": \"A New Zealand Sign Language interpreter\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  ],\r\n  \"clinicalStatus\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://terminology.hl7.org/CodeSystem/condition-clinical\",\r\n        \"code\": \"active\"\r\n      }\r\n    ]\r\n  },\r\n  \"category\": [\r\n    {\r\n      \"coding\": [\r\n        {\r\n          \"system\": \"http://snomed.info/sct\",\r\n          \"code\": \"717831006\",\r\n          \"display\": \"Level of dependence\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"code\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://snomed.info/sct\",\r\n        \"code\": \"371152001\",\r\n        \"display\": \"Assisted\"\r\n      }\r\n    ]\r\n  },\r\n  \"subject\": {\r\n    \"type\": \"Patient\",\r\n    \"identifier\": {\r\n      \"use\": \"official\",\r\n      \"system\": \"https://standards.digital.health.nz/ns/nhi-id\",\r\n      \"value\": \"123\"\r\n    },\r\n    \"display\": \"Marieke Christabel\"\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
-									"headerFamily": "json",
 									"language": "json"
 								}
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/Condition?_format=<string>&_pretty=<boolean>",
+							"raw": "{{API_URL}}/Condition",
 							"host": [
-								"{{baseUrl}}"
+								"{{API_URL}}"
 							],
 							"path": [
 								"Condition"
-							],
-							"query": [
-								{
-									"key": "_format",
-									"value": "<string>",
-									"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-								},
-								{
-									"key": "_pretty",
-									"value": "<boolean>",
-									"description": "Ask for a pretty printed response for human convenience"
-								}
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "Resource created successfully",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/Condition?_format=<string>&_pretty=<boolean>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"Condition"
-									],
-									"query": [
-										{
-											"key": "_format",
-											"value": "<string>",
-											"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-										},
-										{
-											"key": "_pretty",
-											"value": "<boolean>",
-											"description": "Ask for a pretty printed response for human convenience"
-										}
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}"
-						},
-						{
-							"name": "Unauthorized",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"resourceType\": {\n    \"description\": \"This is a Condition resource\"\n  }\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/Condition?_format=<string>&_pretty=<boolean>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"Condition"
-									],
-									"query": [
-										{
-											"key": "_format",
-											"value": "<string>",
-											"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-										},
-										{
-											"key": "_pretty",
-											"value": "<boolean>",
-											"description": "Ask for a pretty printed response for human convenience"
-										}
-									]
-								}
-							},
-							"status": "Unauthorized",
-							"code": 401,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "<string>"
-						}
-					]
+					"response": []
 				},
 				{
-					"name": "Search for Condition",
+					"name": "Create Consent to Cover Condition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check status code\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Add delay to allow ElasticSearch to update before running searches\r",
+									"setTimeout(function(){}, 2000);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const date = new Date();\r",
+									"pm.variables.set(\"CURRENT_DATE\", date.toISOString().slice(0, 10));\r",
+									"pm.variables.set(\"CURRENT_TIME\", date.toISOString());\r",
+									"\r",
+									"date.setDate(date.getDate() + 49);\r",
+									"pm.variables.set(\"CURRENT_DATE_PLUS_49\", date.toISOString().slice(0, 10));\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"resourceType\": \"Consent\",\r\n  \"status\": \"active\",\r\n  \"scope\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://terminology.hl7.org/CodeSystem/consentscope\",\r\n        \"code\": \"patient-privacy\",\r\n        \"display\": \"Privacy Consent\"\r\n      }\r\n    ],\r\n    \"text\": \"Privacy Consent\"\r\n  },\r\n  \"category\": [\r\n      {\r\n          \"coding\": [\r\n              {\r\n                  \"system\": \"http://loinc.org\",\r\n                  \"code\": \"57016-8\",\r\n                  \"display\": \"Privacy policy acknowledgement Document\"\r\n              }\r\n          ]\r\n      }\r\n  ],\r\n  \"patient\": {\r\n    \"type\": \"Patient\",\r\n    \"identifier\": {\r\n      \"use\": \"official\",\r\n      \"system\": \"https://standards.digital.health.nz/ns/nhi-id\",\r\n      \"value\": \"ZXP7823\"\r\n    },\r\n    \"display\": \"Carey Carrington\"\r\n  },\r\n  \"dateTime\": \"{{CURRENT_TIME}}\",\r\n  \"performer\": [\r\n    {\r\n      \"type\": \"Patient\",\r\n      \"identifier\": {\r\n        \"use\": \"official\",\r\n        \"system\": \"https://standards.digital.health.nz/ns/nhi-id\",\r\n        \"value\": \"ZXP7823\"\r\n      },\r\n      \"display\": \"Carey Carrington\"\r\n    }\r\n  ],\r\n\"policy\": [\r\n  {\r\n    \"authority\": \"https://www.privacy.org.nz\",\r\n    \"uri\": \"https://www.privacy.org.nz/privacy-act-2020/codes-of-practice/hipc2020/\"    \r\n  }\r\n],\r\n  \"verification\": [\r\n    {\r\n      \"verified\": true,\r\n      \"verifiedWith\": {\r\n        \"type\": \"Patient\",\r\n        \"identifier\": {\r\n          \"use\": \"official\",\r\n          \"system\": \"https://standards.digital.health.nz/ns/nhi-id\",\r\n          \"value\": \"ZXP7823\"\r\n        },\r\n        \"display\": \"Carey Carrington\"\r\n      }\r\n    }\r\n  ],\r\n  \"provision\": {\r\n    \"period\": {\r\n      \"start\": \"{{CURRENT_DATE}}\",\r\n      \"end\": \"{{CURRENT_DATE_PLUS_49}}\"\r\n    },\r\n    \"data\": [\r\n      {\r\n        \"meaning\": \"instance\",\r\n        \"reference\": {\r\n          \"reference\": \"Condition/{{T-ConditionID}}\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Consent",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Consent"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Read Condition",
+			"item": [
+				{
+					"name": "Search Conditions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check status code\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Add delay to allow ElasticSearch to update before running searches\r",
+									"setTimeout(function(){}, 2000);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const date = new Date();\r",
+									"pm.variables.set(\"CURRENT_DATE\", date.toISOString().slice(0, 10));\r",
+									"pm.variables.set(\"CURRENT_TIME\", date.toISOString());\r",
+									"\r",
+									"date.setDate(date.getDate() + 49);\r",
+									"pm.variables.set(\"CURRENT_DATE_PLUS_49\", date.toISOString().slice(0, 10));\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/json"
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/Condition?_format=<string>&_pretty=<boolean>&_summary=false&_elements=&_count=<number>",
+							"raw": "{{API_URL}}/Condition?patient.identifier=SCF12345678",
 							"host": [
-								"{{baseUrl}}"
+								"{{API_URL}}"
 							],
 							"path": [
 								"Condition"
 							],
 							"query": [
 								{
-									"key": "_format",
-									"value": "<string>",
-									"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-								},
-								{
-									"key": "_pretty",
-									"value": "<boolean>",
-									"description": "Ask for a pretty printed response for human convenience"
-								},
-								{
-									"key": "_summary",
-									"value": "false",
-									"description": "Requests the server to return a designated subset of the resource"
-								},
-								{
-									"key": "_elements",
-									"value": "",
-									"description": "Requests the server to return a collection of elements from the resource"
-								},
-								{
-									"key": "_count",
-									"value": "<number>",
-									"description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
+									"key": "patient.identifier",
+									"value": "SCF12345678"
 								}
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "Successful response",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/Condition?_format=<string>&_pretty=<boolean>&_summary=false&_elements=&_count=<number>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"Condition"
-									],
-									"query": [
-										{
-											"key": "_format",
-											"value": "<string>",
-											"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-										},
-										{
-											"key": "_pretty",
-											"value": "<boolean>",
-											"description": "Ask for a pretty printed response for human convenience"
-										},
-										{
-											"key": "_summary",
-											"value": "false",
-											"description": "Requests the server to return a designated subset of the resource"
-										},
-										{
-											"key": "_elements",
-											"value": "",
-											"description": "Requests the server to return a collection of elements from the resource"
-										},
-										{
-											"key": "_count",
-											"value": "<number>",
-											"description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "[\n  {\n    \"resourceType\": {\n      \"description\": \"This is a Bundle resource\"\n    }\n  },\n  {\n    \"resourceType\": {\n      \"description\": \"This is a Bundle resource\"\n    }\n  }\n]"
-						},
-						{
-							"name": "Unauthorized",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/Condition?_format=<string>&_pretty=<boolean>&_summary=false&_elements=&_count=<number>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"Condition"
-									],
-									"query": [
-										{
-											"key": "_format",
-											"value": "<string>",
-											"description": "Specify alternative response formats by their MIME-types (when a client is unable to access accept: header)"
-										},
-										{
-											"key": "_pretty",
-											"value": "<boolean>",
-											"description": "Ask for a pretty printed response for human convenience"
-										},
-										{
-											"key": "_summary",
-											"value": "false",
-											"description": "Requests the server to return a designated subset of the resource"
-										},
-										{
-											"key": "_elements",
-											"value": "",
-											"description": "Requests the server to return a collection of elements from the resource"
-										},
-										{
-											"key": "_count",
-											"value": "<number>",
-											"description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
-										}
-									]
-								}
-							},
-							"status": "Unauthorized",
-							"code": 401,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "<string>"
-						}
-					]
+					"response": []
 				}
 			]
 		}
 	],
 	"auth": {
-		"type": "oauth2",
-		"oauth2": [
+		"type": "bearer",
+		"bearer": [
 			{
-				"key": "accessTokenUrl",
-				"value": "https://auth.integration.covid19.health.nz/oauth2/token",
-				"type": "string"
-			},
-			{
-				"key": "authUrl",
-				"value": "https://auth.integration.covid19.health.nz/oauth2/authorize",
-				"type": "string"
-			},
-			{
-				"key": "grant_type",
-				"value": "authorization_code",
+				"key": "token",
+				"value": "{{COGNITO_TOKEN}}",
 				"type": "string"
 			}
 		]
 	},
-	"variable": [
+	"event": [
 		{
-			"key": "baseUrl",
-			"value": "https://fhir.api.digital.health.nz/R4"
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Include Request-Context on all requests",
+					"pm.request.headers.add({key: 'Request-Context', value: 'ewogICJ1c2VySWRlbnRpZmllciI6ICIxMUFBYmJAIyIsCiAgInVzZXJSb2xlIjogIlByYWN0aXRpb25lciIsCiAgInNlY29uZGFyeUlkZW50aWZpZXJzIjogewogICAgInVzZSI6ICJvZmZpY2lhbCIsCiAgICAic3lzdGVtIjogImh0dHBzOi8vc3RhbmRhcmRzLmRpZ2l0YWwuaGVhbHRoLm56L25zL2hwaS1wZXJzb24taWQiLAogICAgInZhbHVlIjogIjk5WlpGWCIKICB9Cn0=' });"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

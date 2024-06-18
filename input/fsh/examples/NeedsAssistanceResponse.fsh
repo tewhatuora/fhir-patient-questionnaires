@@ -13,14 +13,13 @@ Usage: #example
 * item[+].linkId = "needs"
 * item[=].text = "Assistance"
 
-* item[0].item[0].linkId = "category"
+* item[=].item[0].linkId = "category"
 * item[=].item[=].answer[0].valueCoding.code = #717831006
 
 * item[=].item[+].linkId = "code"
 * item[=].item[=].answer[0].valueCoding.code = #371152001
 
 * item[=].item[+].linkId = "needs_assistance"
-* item[=].item[=].text = "What type of assistance do you require?"
-* item[=].item[=].answer[0].valueCoding.system = "http://localhost:8080/fhir/CodeSystem/assistance-needs-cs"
+* item[=].item[=].text = "What type of assistance to you require?"
 * item[=].item[=].answer[0].valueCoding.code = #171671000210109
 * item[=].item[=].answer[0].valueCoding.display = "A New Zealand Sign Language interpreter"

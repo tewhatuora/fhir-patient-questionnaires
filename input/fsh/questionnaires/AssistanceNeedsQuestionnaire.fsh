@@ -38,14 +38,14 @@ Usage: #definition
 * item[=].item[=].initial[0].valueCoding.code = #717831006
 * item[=].item[=].answerOption[0].valueCoding.code = #717831006
 * item[=].item[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
-* item[=].item[=].extension[0].valueBoolean = true
+* item[=].item[=].extension[=].valueBoolean = true
 
 * item[=].item[+].linkId = "code"
 * item[=].item[=].type = #choice
 * item[=].item[=].initial[0].valueCoding.code = #371152001
 * item[=].item[=].answerOption[0].valueCoding.code = #371152001
 * item[=].item[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
-* item[=].item[=].extension[0].valueBoolean = true
+* item[=].item[=].extension[=].valueBoolean = true
 
 // * item[=].item[+].linkId = "needs_assistance"
 // * item[=].item[=].type = #open-choice
@@ -57,8 +57,8 @@ Usage: #definition
 // * item[=].item[=].extension.valueCodeableConcept.text = "Drop down"
 
 * item[=].item[+].linkId = "needs_assistance"
-* item[=].item[=].type = #choice
 * item[=].item[=].text = "What type of assistance to you require?"
+* item[=].item[=].type = #choice
 * item[=].item[=].answerOption[0].valueCoding.code = #171671000210109
 * item[=].item[=].answerOption[=].valueCoding.display = "A New Zealand Sign Language interpreter"
 * item[=].item[=].answerOption[+].valueCoding.code = #133920001

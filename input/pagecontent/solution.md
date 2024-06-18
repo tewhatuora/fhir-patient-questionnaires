@@ -11,7 +11,8 @@ Salesforce, via the _magic link_ triggers the Questionnaire in the form tool, th
 
 The resulting resources can be consumed via the Rest API to retrieve the patients assistance needs.
 
-`curl -s http://localhost:8080/fhir/Condition?patient={{ nhsid }}}}&category=717831006&code=371152001`
+`rid=$(curl -s http://localhost:8080/fhir/Patient?identifier=DAN0002 | jq '.entry[0].resource.id')`
+`curl -s http://localhost:8080/fhir/Condition?patient=${rid}&category=717831006&code=371152001`
 
 <div width="70%">
 <!-- Generated from `input/images-source/2.assistance-retrieve.plantuml` -->

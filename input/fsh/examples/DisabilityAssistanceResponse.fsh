@@ -1,6 +1,6 @@
 Instance: DisabilityAssistanceResponse
 InstanceOf: QuestionnaireResponse
-Description: "Example response to the Disability Assistance Questionnaire"
+Description: "Example response for NZ Sign Language Assistance"
 Usage: #example
 
 * status = #completed
@@ -13,10 +13,15 @@ Usage: #example
 
 * item[+].linkId = "needs"
 * item[=].text = "Assistance"
-* item[=].item[0].linkId = "needs-condition"
-* item[=].item[=].text = "Is help needed for the appointment because of a disability or impairment?"
-* item[=].item[=].answer[0].valueBoolean = true
 
-// * item[=].item[+].linkId = "needs-assistance"
-// * item[=].item[=].text = "What type of assistance do you require?"
-// * item[=].item[=].answer[0].valueCoding = "nzsli"
+* item[0].item[0].linkId = "category"
+* item[=].item[=].answer[0].valueCoding.code = #717831006
+
+* item[=].item[+].linkId = "code"
+* item[=].item[=].answer[0].valueCoding.code = #371152001
+
+* item[=].item[+].linkId = "needs-assistance"
+* item[=].item[=].text = "What type of assistance do you require?"
+* item[=].item[=].answer[0].valueCoding.system = "http://localhost:8080/fhir/CodeSystem/assistance-needs-cs"
+* item[=].item[=].answer[0].valueCoding.code = #171671000210109
+* item[=].item[=].answer[0].valueCoding.display = "A New Zealand Sign Language interpreter"

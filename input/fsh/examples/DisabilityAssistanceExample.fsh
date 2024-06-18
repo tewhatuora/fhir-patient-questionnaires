@@ -19,8 +19,17 @@ Description: "Required Assistance: A New Zealand Sign Language interpreter"
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 
+// Hard-coded group-by fields
+* category[0].coding[0].system = "http://snomed.info/sct"
+* category[=].coding[=].code = #717831006
+* category[=].coding[=].display = "Level of dependence"
+
+* code.coding[0].system = "http://snomed.info/sct"
+* code.coding[=].code = #371152001
+* code.coding[=].display = "Assisted"
+
 // Assistance Needs Extension
 * extension[0].url = Canonical(AssistanceNeedsExtension)
-* extension[0].valueCodeableConcept.coding[0].system = Canonical(AssistanceNeedsCodeSystem)
-* extension[0].valueCodeableConcept.coding[0].code = #nzsli
-* extension[0].valueCodeableConcept.coding[0].display = "A New Zealand Sign Language interpreter"
+* extension[=].valueCodeableConcept.coding[0].system = Canonical(AssistanceNeedsCodeSystem)
+* extension[=].valueCodeableConcept.coding[=].code = #171671000210109
+* extension[=].valueCodeableConcept.coding[=].display = "A New Zealand Sign Language interpreter"

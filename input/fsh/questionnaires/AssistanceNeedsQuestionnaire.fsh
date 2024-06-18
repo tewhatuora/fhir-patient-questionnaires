@@ -30,10 +30,24 @@ Usage: #definition
 * item[=].enableWhen.question = "disclaimer"
 * item[=].enableWhen.operator = #=
 * item[=].enableWhen.answerBoolean = true
-* item[=].item[0].linkId = "needs-assistance"
-* item[=].item[=].type = #choice
-* item[=].item[=].text = "What type of assistance to you require?"
-* item[=].item[=].answerValueSet = Canonical(AssistanceNeedsValueSet)
-* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-* item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
-* item[=].item[=].extension.valueCodeableConcept.text = "Drop down"
+
+// Hidden fields to set hard-coded Category and SNOMED Code for "Level of dependence", "Assisted"
+* item[=].item[0].linkId = "category"
+* item[=].item[=].type = #string
+* item[=].item[=].initial[0].valueString = "717831006"
+* item[=].item[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension[0].valueBoolean = true
+
+* item[=].item[+].linkId = "code"
+* item[=].item[=].type = #string
+* item[=].item[=].initial[0].valueString = "371152001"
+* item[=].item[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].extension[0].valueBoolean = true
+
+// * item[=].item[+].linkId = "needs-assistance"
+// * item[=].item[=].type = #choice
+// * item[=].item[=].text = "What type of assistance to you require?"
+// * item[=].item[=].answerValueSet = Canonical(AssistanceNeedsValueSet)
+// * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+// * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
+// * item[=].item[=].extension.valueCodeableConcept.text = "Drop down"

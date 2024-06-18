@@ -1,8 +1,8 @@
-Instance: DisabilityAssistanceCapabilityStatement
+Instance: AssistanceNeedsCapabilityStatement
 InstanceOf: CapabilityStatement
 Usage: #definition
 
-* name = "DisabilityAssistanceCapabilityStatement"
+* name = "AssistanceNeedsCapabilityStatement"
 * title = "Assistance Needs API"
 * status = #draft
 * date = "2024-05-03"
@@ -32,10 +32,18 @@ Usage: #definition
 * rest.resource[=] insert ResourceDocumentation([[This server profiles FHIR Condition to support NZ Disabled Patient Assistance Requirements]])
 
 * rest.resource[=] insert QuerySearchInteraction
+
 * rest.resource[=].searchParam[0].name = "patient"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who has the assistance need?"
 
-* rest.resource[=] insert GenericCRUDInteractions
-* rest.resource[=].searchInclude[0] = "*"
+* rest.resource[=].searchParam[+].name = "category"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-category"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Search by condition category"
+
+* rest.resource[=].searchParam[+].name = "code"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Search by condition code"

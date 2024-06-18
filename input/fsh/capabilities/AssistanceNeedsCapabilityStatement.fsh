@@ -39,7 +39,7 @@ Usage: #definition
 * rest.resource[=].searchParam[=].documentation = "Who has the assistance need?"
 
 * rest.resource[=].searchParam[+].name = "category"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-category"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Condition-category"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Search by condition category"
 

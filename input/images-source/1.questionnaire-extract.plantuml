@@ -1,24 +1,25 @@
 @startuml
 
 actor Salesforce
-participant "Form Tool"
-participant "API Gateway"
-participant "FHIR Server"
+participant "Form Tool" as UI
+participant "API Gateway" as GW
+participant "FHIR Server" as FHIR
 participant "Internal Extract Process" as Extract
 
-Salesforce -> "Form Tool" : Magic Link
-"Form Tool" -> "API Gateway" : Questionnaire Response
-"API Gateway" -> "FHIR Server" : Forward Data
+Salesforce -> UI : Magic Link (Questionnaire)
+UI -> GW : QuestionnaireResponse
+GW -> FHIR : QuestionnaireResponse
 
 ' Immediate confirmation back to Salesforce
-"API Gateway" --> "Form Tool" : Data Forwarded Confirmation
-"Form Tool" --> Salesforce : Confirmation
+FHIR --> GW : confirmation
+GW --> UI : confirmation
+UI --> Salesforce : confirmation
 
-"FHIR Server" -> "FHIR Server" : Validate Data
+FHIR -> FHIR : Validate Data
 
 ' Asynchronous extract process
-"FHIR Server" -> Extract : Trigger Extract Process
+FHIR -> Extract : Trigger Extract Process
 Extract -> Extract : Process Data
-Extract --> "FHIR Server" : Create Resource(s)
+Extract --> FHIR : Create Resource(s)
 
 @enduml

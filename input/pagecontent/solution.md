@@ -9,6 +9,10 @@ Salesforce, via the _magic link_ triggers the Questionnaire in the form tool, th
 {% include 1.questionnaire-extract.svg %}
 </div>
 
+> The questionnaire is in _Patient_ context, and neither the Questionnaire nor Questionnaireresponse define Patient as a subject, because the `Form Tool` injects this.
+
+### Response
+
 The resulting resources can be consumed via the Rest API to retrieve the patients assistance needs.
 
 `curl -s http://localhost:8080/fhir/Condition?subject:identifier=${nhi}&category=717831006&code=371152001`

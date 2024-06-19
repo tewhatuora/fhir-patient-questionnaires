@@ -105,7 +105,7 @@ paths:
         - $ref: '#/components/parameters/summary'
         - $ref: '#/components/parameters/elements'
         - $ref: '#/components/parameters/count'
-        - name: patient
+        - name: subject:identifier
           in: query
           description: Patient NHI Number
           schema:

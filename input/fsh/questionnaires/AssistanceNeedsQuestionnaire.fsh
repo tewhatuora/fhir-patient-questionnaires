@@ -47,7 +47,7 @@ Usage: #definition
 * item[=].item[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
 * item[=].item[=].extension[=].valueBoolean = true
 
-// * item[=].item[+].linkId = "needs_assistance"
+// * item[=].item[+].linkId = "needs-assistance"
 // * item[=].item[=].type = #open-choice
 // * item[=].item[=].repeats = true
 // * item[=].item[=].text = "What type of assistance to you require?"
@@ -56,7 +56,7 @@ Usage: #definition
 // * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 // * item[=].item[=].extension.valueCodeableConcept.text = "Drop down"
 
-* item[=].item[+].linkId = "needs_assistance"
+* item[=].item[+].linkId = "needs-assistance"
 * item[=].item[=].text = "What type of assistance to you require?"
 * item[=].item[=].type = #choice
 * item[=].item[=].answerOption[0].valueCoding.code = #171671000210109

@@ -19,7 +19,7 @@ Usage: #example
 * item[=].item[+].linkId = "code"
 * item[=].item[=].answer[0].valueCoding.code = #371152001
 
-* item[=].item[+].linkId = "needs_assistance"
+* item[=].item[+].linkId = "needs-assistance"
 * item[=].item[=].text = "What type of assistance to you require?"
 * item[=].item[=].answer[0].valueCoding.code = #171671000210109
 * item[=].item[=].answer[0].valueCoding.display = "A New Zealand Sign Language interpreter"

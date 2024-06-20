@@ -256,7 +256,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/Condition?patient.identifier=SCF12345678",
+							"raw": "{{API_URL}}/Condition?patient.identifier=ZHI0000",
 							"host": [
 								"{{API_URL}}"
 							],
@@ -266,7 +266,7 @@
 							"query": [
 								{
 									"key": "patient.identifier",
-									"value": "SCF12345678"
+									"value": "ZHI0000"
 								}
 							]
 						}

@@ -6,7 +6,7 @@ Usage: #example
 * meta.profile = Canonical(http://hl7.org.nz/fhir/StructureDefinition/NzPatient)
 // * meta.versionId = "1" cannot be used here as this content is used in contained instances where the container is versioned
 
-* identifier insert NHIIdentifier(DAN0001)
+* identifier insert NHIIdentifier(ZHI0010)
 
 * name.use = #usual
 * name.family = "Christabel"

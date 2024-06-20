@@ -3,7 +3,7 @@ Alias: $questionnaire-item-control = http://hl7.org/fhir/questionnaire-item-cont
 Instance: AssistanceNeedsQuestionnaire
 InstanceOf: Questionnaire
 Description: "Assistance Requirements selection from terminology server"
-Usage: #example
+Usage: #definition
 
 * identifier[0].use = #official
 * identifier[=].value = "assistance-needs-questionnaire"
@@ -45,14 +45,14 @@ Usage: #example
 * item[=].extension[=].extension[=].url = "destination"
 * item[=].extension[=].url = "http://hl7.org.nz/fhir/StructureDefinition/sdc-questionnaire-extractMetadata"
 
+* item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
+* item[=].item.extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
+* item[=].item.extension.valueCodeableConcept.text = "Drop down"
 * item[=].item.linkId = "needs-assistance"
 * item[=].item.text = "What type of assistance do you require?"
 * item[=].item.type = #choice
 // * item[=].item.type = #open-choice
 // * item[=].item.repeats = #repeats
-* item[=].item.extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-* item[=].item.extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
-* item[=].item.extension.valueCodeableConcept.text = "Drop down"
 * item[=].item.answerOption[0].valueCoding = #171671000210109 "A New Zealand Sign Language interpreter"
 * item[=].item.answerOption[+].valueCoding = #133920001 "Support to make decisions"
 * item[=].item.answerOption[+].valueCoding = #amr "Assistance to move around"
@@ -70,3 +70,21 @@ Usage: #example
 // * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 // * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
 // * item[=].item[=].extension.valueCodeableConcept.text = "Drop down"
+
+* item[=].item.definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.extension[0].valueCodeableConcept.coding"
+* item[+].linkId = "extract"
+* item[=].type = #group
+* item[=].extension.valueBoolean = true
+* item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[0].initial.valueCoding = $condition-clinical#active
+* item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.clinicalStatus.coding[]"
+* item[=].item[=].type = #choice
+* item[=].item[=].linkId = "condition-clinical"
+* item[=].item[+].initial.valueCoding = $sct#717831006 "Level of dependence"
+* item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.category.coding[]"
+* item[=].item[=].type = #choice
+* item[=].item[=].linkId = "condition-category"
+* item[=].item[+].initial.valueCoding = $sct#371152001 "Assisted"
+* item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.code.coding[]"
+* item[=].item[=].type = #choice
+* item[=].item[=].linkId = "condition-code"

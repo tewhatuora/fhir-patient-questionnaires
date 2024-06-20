@@ -28,8 +28,8 @@ Usage: #example
 
 * item[=].item[+].linkId = "needs-assistance"
 * item[=].item[=].text = "What type of assistance to you require?"
-* item[=].item[=].answer[0].valueCoding.code = #171671000210109
-* item[=].item[=].answer[0].valueCoding.display = "A New Zealand Sign Language interpreter"
+* item[=].item[=].answer[0].valueCoding = #171671000210109 "A New Zealand Sign Language interpreter"
+* item[=].item[=].answer[+].valueCoding = #133920001 "Support to make decisions"
 
 * item[=].item[+].linkId = "condition-clinical"
 * item[=].item[=].answer.valueCoding = $condition-clinical#active

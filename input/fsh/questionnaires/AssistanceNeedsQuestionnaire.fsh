@@ -50,9 +50,8 @@ Usage: #definition
 * item[=].item.extension.valueCodeableConcept.text = "Drop down"
 * item[=].item.linkId = "needs-assistance"
 * item[=].item.text = "What type of assistance do you require?"
-* item[=].item.type = #choice
-// * item[=].item.type = #open-choice
-// * item[=].item.repeats = #repeats
+* item[=].item.type = #open-choice
+* item[=].item.repeats = true
 * item[=].item.answerOption[0].valueCoding = #171671000210109 "A New Zealand Sign Language interpreter"
 * item[=].item.answerOption[+].valueCoding = #133920001 "Support to make decisions"
 * item[=].item.answerOption[+].valueCoding = #amr "Assistance to move around"

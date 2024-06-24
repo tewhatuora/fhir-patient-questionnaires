@@ -60,17 +60,13 @@ Usage: #definition
 * item[=].item.answerOption[+].valueCoding = #msm "More space to move around"
 * item[=].item.definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.extension[0].valueCodeableConcept.coding"
 
-// Replace above when CodeSystem is available
-// * item[=].item[+].linkId = "needs-assistance"
-// * item[=].item[=].type = #open-choice
-// * item[=].item[=].repeats = true
-// * item[=].item[=].text = "What type of assistance to you require?"
-// * item[=].item[=].answerValueSet = Canonical(AssistanceNeedsValueSet)
-// * item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
-// * item[=].item[=].extension.valueCodeableConcept = $questionnaire-item-control#drop-down "Drop down"
-// * item[=].item[=].extension.valueCodeableConcept.text = "Drop down"
+* item[=].item[+].linkId = "needs-assistance-url"
+* item[=].item[=].type = #string
+* item[=].item[=].initial.valueString = "https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires/StructureDefinition/assistance-needs-ext"
+* item[=].item[=].extension.valueBoolean = true
+* item[=].item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden"
+* item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.extension[0].url"
 
-* item[=].item.definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.extension[0].valueCodeableConcept.coding"
 * item[+].linkId = "extract"
 * item[=].type = #group
 * item[=].extension.valueBoolean = true
@@ -80,7 +76,7 @@ Usage: #definition
 * item[=].item[=].type = #choice
 * item[=].item[=].linkId = "condition-clinical"
 * item[=].item[+].initial.valueCoding = $sct#717831006 "Level of dependence"
-* item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.category.coding[]"
+* item[=].item[=].definition = "http://hl7.org/fhir/StructureDefinition/Condition#Condition.category[0].coding[]"
 * item[=].item[=].type = #choice
 * item[=].item[=].linkId = "condition-category"
 * item[=].item[+].initial.valueCoding = $sct#371152001 "Assisted"

@@ -26,7 +26,13 @@ The resulting resources can be consumed via the Rest API to retrieve the patient
 
 The auto-generated OAS file has been left unaltered, however, this file is not usable in its default output, so the following have been provided, for the following task
 
-[IS-2255: Create PPNHI postman collection](https://mohits.atlassian.net/browse/IS-2255)
-
 - Thin-dereferenced OpenAPI Specification [AssistanceNeedsCapabilityStatement.openapi.yaml](/ig/tewhatuora/fhir-patient-questionnaires/AssistanceNeedsCapabilityStatement.openapi.yaml)
-- Postman Collection [Assistance.postman_collection](/ig/tewhatuora/fhir-patient-questionnaires/Assistance.postman_collection)
+- Postman Collection [Assistance.postman_collection.json](/ig/tewhatuora/fhir-patient-questionnaires/Assistance.postman_collection.json)
+
+### Abletech GUI Samples
+
+The following example screen shots are examples only.
+
+![Disclaimer](image-20240624-214504.png)
+![Multi-choice selection](image-20240624-214627.png)
+![Confirmation](image-20240624-214709.png)

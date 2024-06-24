@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "da455d58-963b-4aaa-9807-4a8736614e18",
+		"_postman_id": "e7c74074-3b34-4737-85f0-85a13bb8a033",
 		"name": "PPHI -> FHIRWORKS Condition",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24402966",
-		"_collection_link": "https://solar-zodiac-557375.postman.co/workspace/PPHI~a9a80fd1-121c-49a0-8890-097f8196dae7/collection/24402966-da455d58-963b-4aaa-9807-4a8736614e18?action=share&source=collection_link&creator=24402966"
+		"_exporter_id": "34612325"
 	},
 	"item": [
 		{
@@ -256,7 +255,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/Condition?patient.identifier=ZHI0000",
+							"raw": "{{API_URL}}/Condition?patient.identifier=SCF12345678",
 							"host": [
 								"{{API_URL}}"
 							],
@@ -266,7 +265,7 @@
 							"query": [
 								{
 									"key": "patient.identifier",
-									"value": "ZHI0000"
+									"value": "SCF12345678"
 								}
 							]
 						}

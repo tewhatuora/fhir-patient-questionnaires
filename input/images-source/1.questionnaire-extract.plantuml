@@ -6,20 +6,20 @@ participant "API Gateway" as GW
 participant "FHIR Server" as FHIR
 participant "Internal Extract Process" as Extract
 
-Salesforce -> UI : Magic Link (Questionnaire)
-UI -> GW : QuestionnaireResponse
-GW -> FHIR : QuestionnaireResponse
+Salesforce -> UI : Magic Link (Questionnaire, NHI)
+UI -> GW : QuestionnaireResponse(NHI, Needs)
+GW -> FHIR : QuestionnaireResponse(NHI, Needs)
 
 ' Immediate confirmation back to Salesforce
 FHIR --> GW : confirmation
 GW --> UI : confirmation
 UI --> Salesforce : confirmation
 
-FHIR -> FHIR : Validate Data
+FHIR -> FHIR : Validate Data(NHI, Needs)
 
 ' Asynchronous extract process
-FHIR -> Extract : Trigger Extract Process
-Extract -> Extract : Process Data
-Extract --> FHIR : Create Resource(s)
+FHIR -> Extract : Trigger Extract Process(NHI, Needs)
+Extract -> Extract : Process Data(NHI, Needs)
+Extract --> FHIR : Create Condition(NHI, Needs)
 
 @enduml

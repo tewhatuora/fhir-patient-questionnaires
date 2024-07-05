@@ -1,5 +1,5 @@
 Instance: AssistanceNeedsCapabilityStatement
-InstanceOf: CapabilityStatement
+InstanceOf: HnzToolingCapabilityStatement
 Usage: #definition
 
 * name = "AssistanceNeedsCapabilityStatement"
@@ -13,6 +13,22 @@ Usage: #definition
 * fhirVersion = #4.0.1
 * format = #json
 
+// Requried by HnzToolingCapabilityStatement
+* version = "1.1.0"
+
+* contact.name = "Example Contact Details"
+* contact.telecom.value = "https://example.com"
+* contact.telecom.system = #url
+
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[+].url = Canonical(HnzCustomHeadersExtension)
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[key].valueString = "Correlation-Id"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[value].valueUri = "https://raw.githubusercontent.com/tewhatuora/schemas/main/fhir-definitions-oas/uuid-definition.json"
+* extension[HnzApiSpecBuilderExtension].extension[globalHeaders].extension[=].extension[required].valueBoolean = true
+* extension[HnzApiSpecBuilderExtension].extension[licenseURL].valueUri = "https://example.license.org"
+* extension[HnzApiSpecBuilderExtension].extension[licenseName].valueString = "GPLv3"
+* extension[HnzApiSpecBuilderExtension].extension[externalDocs].valueUri = "https://docs.example.com/fhir"
+// end of HnzToolingCapabilityStatement requirements
+
 * implementation.description = "Assistance Requirements and Summary"
 * implementation.url = "https://fhir.api.digital.health.nz/R4"
 
@@ -24,8 +40,6 @@ Usage: #definition
 * rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/token"
 * rest.security.extension.extension[+].url = "authorize"
 * rest.security.extension.extension[=].valueUri = "https://auth.integration.covid19.health.nz/oauth2/authorize"
-
-* rest.interaction.code = #transaction
 
 * rest.resource[+].type = #Condition
 * rest.resource[=].profile = Canonical(AssistanceNeedsProfile|0.0.1)

@@ -25,6 +25,7 @@ releaseLabel: draft # ci-build | draft | qa-preview | ballot | trial-use | relea
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
+  tewhatuora.digitaltooling.iguat: 0.0.6
   fhir.org.nz.ig.base: 
     uri: http://fhir.org.nz/ig/base/ImplementationGuide/fhir.org.nz.ig.base
     version: 3.0.0

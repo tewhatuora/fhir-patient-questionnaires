@@ -4,7 +4,7 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: tewhatuora.fhir.patient-questionnaires
-canonical: https://build.fhir.org/ig/tewhatuora/fhir-patient-questionnaires
+canonical: https://fhir-ig.digital.health.nz/fhir-patient-questionnaires
 name: Te Whatu Ora FHIR Patient Questionnaires Implementation Guide
 title: Te Whatu Ora FHIR Patient Questionnaires Implementation Guide
 description: Te Whatu Ora Patient Questionnaires Implementation Guide

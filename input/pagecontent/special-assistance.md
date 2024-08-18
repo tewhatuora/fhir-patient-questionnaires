@@ -19,7 +19,7 @@ This is a sample set of questions from Book My Vaccine.
 
 ### Requirements
 
-Q1 is implied, see [Disability Assistance Questionnaire](/Questionnaire-AssistanceNeedsQuestionnaire.html) for more details.
+Q1 is implied, see [Disability Assistance Questionnaire](Questionnaire-AssistanceNeedsQuestionnaire.html) for more details.
 
 Questions | Field Type | Visible | Responses
 ----------|------------|---------|----------

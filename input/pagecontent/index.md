@@ -2,7 +2,7 @@ Support for capturing and retrieving disability assistance needs.
 
 ### Description
 
-[FFC-102 : PPNHI - Build Questionnaire for process (POC)](https://mohits.atlassian.net/browse/FFC-102)
+[FFC-102 : PPNHI - Build Questionnaire for process (POC)](solution.html)
 
 This project is a subset of the larger PPNHI process.  The work carried out here is for a POC. 
 
@@ -13,7 +13,6 @@ This project is a subset of the larger PPNHI process.  The work carried out here
 {% include use-case.svg %}
 </div>
 
-[FFC-96: PPNHI - Special Assistance Questionnaire](/special-assistance.html)
+[FFC-96: PPNHI - Special Assistance Questionnaire](special-assistance.html)
 
 This is a sample set of questions from Book My Vaccine. This is all that is required for the POC. This version will not progress past Testing.
-

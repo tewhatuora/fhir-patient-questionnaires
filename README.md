@@ -18,3 +18,8 @@ Build the IG locally:
 bash _updatePublisher.sh
 bash _genonce.sh
 ```
+
+## Publications
+
+uat branch https://fhir-ig-uat.digital.health.nz/fhir-patient-questionnaires
+main branch https://fhir-ig.digital.health.nz/fhir-patient-questionnaires

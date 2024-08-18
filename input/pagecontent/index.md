@@ -13,6 +13,6 @@ This project is a subset of the larger PPNHI process.  The work carried out here
 {% include use-case.svg %}
 </div>
 
-[FFC-96: PPNHI - Special Assistance Questionnaire][special-assistance]
+[FFC-96: PPNHI - Special Assistance Questionnaire](/special-assistance)
 
 This is a sample set of questions from Book My Vaccine. This is all that is required for the POC. This version will not progress past Testing.

@@ -26,8 +26,8 @@ The resulting resources can be consumed via the Rest API to retrieve the patient
 
 The auto-generated OAS file has been left unaltered, however, this file is not usable in its default output, so the following have been provided, for the following task
 
-- Thin-dereferenced OpenAPI Specification [AssistanceNeedsCapabilityStatement.openapi.yaml](/ig/tewhatuora/fhir-patient-questionnaires/AssistanceNeedsCapabilityStatement.openapi.yaml)
-- Postman Collection [Assistance.postman_collection.json](/ig/tewhatuora/fhir-patient-questionnaires/Assistance.postman_collection.json)
+- Thin-dereferenced OpenAPI Specification [AssistanceNeedsCapabilityStatement.openapi.yaml](AssistanceNeedsCapabilityStatement.openapi.yaml)
+- Postman Collection [Assistance.postman_collection.json](Assistance.postman_collection.json)
 
 ### Abletech GUI Samples
 
